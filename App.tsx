@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import AppLoading from 'expo-app-loading';
+import { NavigationContainer } from '@react-navigation/native';
 import {
   useFonts,
   Nunito_200ExtraLight,
@@ -20,7 +21,9 @@ export default function App() {
 
   return (
     <>
-      <Home />
+      <NavigationContainer>
+        <Home />
+      </NavigationContainer>
       <StatusBar style='auto' />
     </>
   );
