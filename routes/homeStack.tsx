@@ -20,8 +20,9 @@ function HomeStack() {
       screenOptions={{
         headerStyle: {
           backgroundColor: '#eee',
+          height: 60,
         },
-        headerTintColor: '#444',
+        headerTintColor: '#444', // color of the text
         headerTitleStyle: {
           fontWeight: 'bold',
         },
