@@ -6,7 +6,7 @@ import { globalStyles } from '../styles/global';
 
 type RootStackParamList = {
   Home: undefined;
-  ReviewDetails: { title: string; rating: number; body: string; key: number };
+  ReviewDetails: { title: string; rating: number; body: string; key: string };
 };
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;

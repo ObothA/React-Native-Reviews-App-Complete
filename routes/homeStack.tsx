@@ -7,7 +7,7 @@ import ReviewDetails from '../screens/reviewDetails';
 
 type RootStackParamList = {
   Home: undefined;
-  ReviewDetails: { title: string; rating: number; body: string; key: number };
+  ReviewDetails: { title: string; rating: number; body: string; key: string };
 };
 
 // const Stack = createNativeStackNavigator();
