@@ -2,11 +2,11 @@ import React from 'react';
 // import { createNativeStackNavigator, NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import Home from '../screens/home';
+import Reviews from '../screens/reviews';
 import ReviewDetails from '../screens/reviewDetails';
 
 type RootStackParamList = {
-  Home: undefined;
+  Reviews: undefined;
   ReviewDetails: { title: string; rating: number; body: string; key: string };
 };
 
@@ -16,7 +16,7 @@ const Stack = createStackNavigator<RootStackParamList>();
 function HomeStack() {
   return (
     <Stack.Navigator
-      initialRouteName='Home'
+      initialRouteName='Reviews'
       screenOptions={{
         headerStyle: {
           backgroundColor: '#eee',
@@ -29,8 +29,8 @@ function HomeStack() {
       }}
     >
       <Stack.Screen
-        name='Home'
-        component={Home}
+        name='Reviews'
+        component={Reviews}
         options={{
           title: 'Game Zone',
         }}

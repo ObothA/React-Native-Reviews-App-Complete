@@ -14,7 +14,7 @@ import {
   Nunito_700Bold,
 } from '@expo-google-fonts/nunito';
 
-import HomeStack from './routes/homeStack';
+import ReviewsStack from './routes/reviewsStack';
 import About from './screens/about';
 
 export default function App() {
@@ -33,7 +33,7 @@ export default function App() {
     <>
       <NavigationContainer>
         <Drawer.Navigator initialRouteName='Home'>
-          <Drawer.Screen name='Main' component={HomeStack} />
+          <Drawer.Screen name='Home' component={ReviewsStack} />
           <Drawer.Screen name='About' component={About} />
         </Drawer.Navigator>
       </NavigationContainer>

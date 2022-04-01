@@ -5,13 +5,13 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { globalStyles } from '../styles/global';
 
 type RootStackParamList = {
-  Home: undefined;
+  Reviews: undefined;
   ReviewDetails: { title: string; rating: number; body: string; key: string };
 };
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
+type Props = NativeStackScreenProps<RootStackParamList, 'Reviews'>;
 
-export default function Home({ navigation }: Props) {
+export default function Reviews({ navigation }: Props) {
   const [reviews, setReviews] = useState([
     {
       title: 'Title 1',
