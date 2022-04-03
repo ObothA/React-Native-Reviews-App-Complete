@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { View, FlatList, TouchableOpacity, Text } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
+import Card from '../shared/Card';
 import { globalStyles } from '../styles/global';
 
 type RootStackParamList = {
@@ -41,7 +42,9 @@ export default function Reviews({ navigation }: Props) {
           <TouchableOpacity
             onPress={() => navigation.navigate('ReviewDetails', item)}
           >
-            <Text style={globalStyles.titleText}>{item.title}</Text>
+            <Card>
+              <Text style={globalStyles.titleText}>{item.title}</Text>
+            </Card>
           </TouchableOpacity>
         )}
       />

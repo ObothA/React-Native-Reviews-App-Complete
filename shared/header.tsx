@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
 export default ({ navigation }: { navigation: any }) => {
@@ -14,7 +14,11 @@ export default ({ navigation }: { navigation: any }) => {
         onPress={openMenu}
         style={styles.icon}
       />
-      <View>
+      <View style={styles.headerTitle}>
+        <Image
+          source={require('../assets/heart_logo.png')}
+          style={styles.headerImage}
+        />
         <Text style={styles.headerText}>GameZone</Text>
       </View>
     </View>
@@ -26,9 +30,8 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    // marginLeft: '12%',
+    alignItems: 'center', // alignment along the cross axis
+    justifyContent: 'center', // alignment along the main axis
   },
   headerText: {
     fontWeight: 'bold',
@@ -39,5 +42,15 @@ const styles = StyleSheet.create({
   icon: {
     position: 'absolute',
     left: 0,
+  },
+  headerTitle: {
+    flexDirection: 'row',
+    position: 'absolute', // push title to the center
+    left: 110, // push title to the center
+  },
+  headerImage: {
+    width: 26,
+    height: 26,
+    marginHorizontal: 10,
   },
 });

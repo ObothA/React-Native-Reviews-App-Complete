@@ -32,12 +32,12 @@ function HomeStack() {
       <Stack.Screen
         name='Reviews'
         component={Reviews}
-        // options={{
-        //   headerTitle: (props) => <Header {...props} />,
-        // }}
         options={({ navigation }) => {
           return {
             headerTitle: () => <Header navigation={navigation} />,
+            headerStyle: {
+              backgroundColor: '#f9f9f9',
+            },
           };
         }}
       />
