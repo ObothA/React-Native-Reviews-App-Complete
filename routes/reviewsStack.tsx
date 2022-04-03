@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Reviews from '../screens/reviews';
 import ReviewDetails from '../screens/reviewDetails';
+import Header from '../shared/header';
 
 type RootStackParamList = {
   Reviews: undefined;
@@ -31,8 +32,13 @@ function HomeStack() {
       <Stack.Screen
         name='Reviews'
         component={Reviews}
-        options={{
-          title: 'Game Zone',
+        // options={{
+        //   headerTitle: (props) => <Header {...props} />,
+        // }}
+        options={({ navigation }) => {
+          return {
+            headerTitle: () => <Header navigation={navigation} />,
+          };
         }}
       />
       <Stack.Screen
