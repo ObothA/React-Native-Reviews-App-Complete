@@ -1,8 +1,17 @@
 import { useState } from 'react';
-import { View, FlatList, TouchableOpacity, Text } from 'react-native';
+import {
+  View,
+  FlatList,
+  TouchableOpacity,
+  Text,
+  Modal,
+  StyleSheet,
+} from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { MaterialIcons } from '@expo/vector-icons';
 
 import Card from '../shared/Card';
+import ReviewForm from '../screens/reviewForm';
 import { globalStyles } from '../styles/global';
 
 type RootStackParamList = {
@@ -33,9 +42,32 @@ export default function Reviews({ navigation }: Props) {
       key: '3',
     },
   ]);
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <View style={globalStyles.container}>
+      <Modal visible={modalOpen} animationType='slide'>
+        <View style={styles.modalContent}>
+          <MaterialIcons
+            name='close'
+            size={24}
+            onPress={() => setModalOpen(false)}
+            style={{
+              ...styles.modalToggle,
+              ...styles.modalClose,
+            }}
+          />
+          <ReviewForm />
+        </View>
+      </Modal>
+
+      <MaterialIcons
+        name='add'
+        size={24}
+        style={styles.modalToggle}
+        onPress={() => setModalOpen(true)}
+      />
+
       <FlatList
         data={reviews}
         renderItem={({ item }) => (
@@ -51,3 +83,21 @@ export default function Reviews({ navigation }: Props) {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  modalContent: {
+    flex: 1,
+  },
+  modalToggle: {
+    marginBottom: 10,
+    borderWidth: 1,
+    borderColor: '#f2f2f2',
+    padding: 10,
+    borderRadius: 10,
+    alignSelf: 'center',
+  },
+  modalClose: {
+    marginTop: 20,
+    marginBottom: 0,
+  },
+});
