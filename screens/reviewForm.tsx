@@ -4,7 +4,7 @@ import { Formik } from 'formik';
 import { globalStyles } from '../styles/global';
 import { TextInput } from 'react-native-gesture-handler';
 
-export default () => {
+export default ({ addReview }: any) => {
   return (
     <View style={globalStyles.container}>
       <Formik
@@ -13,8 +13,9 @@ export default () => {
           body: '',
           rating: '',
         }}
-        onSubmit={(values) => {
-          console.log(values);
+        onSubmit={(values, actions) => {
+          // actions.resetForm();
+          addReview(values);
         }}
       >
         {(formikProps) => (

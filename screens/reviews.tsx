@@ -3,6 +3,8 @@ import {
   View,
   FlatList,
   TouchableOpacity,
+  TouchableWithoutFeedback,
+  Keyboard,
   Text,
   Modal,
   StyleSheet,
@@ -44,21 +46,31 @@ export default function Reviews({ navigation }: Props) {
   ]);
   const [modalOpen, setModalOpen] = useState(false);
 
+  const addReview = (review: any) => {
+    review.key = Math.random().toString();
+    setReviews((currentReviews) => {
+      return [review, ...currentReviews];
+    });
+    setModalOpen(false);
+  };
+
   return (
     <View style={globalStyles.container}>
       <Modal visible={modalOpen} animationType='slide'>
-        <View style={styles.modalContent}>
-          <MaterialIcons
-            name='close'
-            size={24}
-            onPress={() => setModalOpen(false)}
-            style={{
-              ...styles.modalToggle,
-              ...styles.modalClose,
-            }}
-          />
-          <ReviewForm />
-        </View>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={styles.modalContent}>
+            <MaterialIcons
+              name='close'
+              size={24}
+              onPress={() => setModalOpen(false)}
+              style={{
+                ...styles.modalToggle,
+                ...styles.modalClose,
+              }}
+            />
+            <ReviewForm addReview={addReview} />
+          </View>
+        </TouchableWithoutFeedback>
       </Modal>
 
       <MaterialIcons
